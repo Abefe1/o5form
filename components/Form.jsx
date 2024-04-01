@@ -12,8 +12,11 @@ const Form=()=>{
     
 
     const handleSubmit=(e)=>{
+        
         e.preventDefault()
+
         console.log(userInfo);
+
         // console.log(userInfo.firstName, userInfo.lastName, userInfo.gender, userInfo.email, userInfo.password);
     }
 
@@ -34,23 +37,25 @@ const Form=()=>{
             <div className="form-control">
                 <label htmlFor="email">First Name</label>
                 <br />
-                <input name="firstName"
+                <input id="firstname" name="firstName"
                 type="text"
                 placeholder="First Name"
                 value={userInfo.firstName}
                 onChange={handleInfo}
                 />
+                <p id="firstnamep"></p>
 
                 <br /><br />
 
                 <label htmlFor="lastName">Last Name</label>
                 <br />
-                <input name="lastName"
+                <input id="lastname" name="lastName"
                 type="text"
                 placeholder="Last Name"
                 value={userInfo.lastName}
                 onChange={handleInfo}
                 />
+                <p id="lastnamep"></p>
 
                 <br /><br />
 
@@ -64,23 +69,25 @@ const Form=()=>{
                 <br /><br />
                 <label htmlFor="email">Email</label>
                 <br />
-                <input name="email"
+                <input id="email" name="email"
                 type="email"
                 placeholder="eg:name@gmail.com"
                 value={userInfo.email}
                 onChange={handleInfo}
                 />
+                <p id="emailp"></p>
 
 
                 <br /><br />
                 <label htmlFor="password">Password</label>
                 <br />
-                <input name="password"
+                <input id="password" name="password"
                 type="password"
                 placeholder="*********"
                 value={userInfo.password}
                 onChange= {handleInfo}
                 />
+                <p id="passwordp"></p>
             </div>
             <br /><br />
             <button type="submit" >Submit</button>
