@@ -85,35 +85,33 @@ const info=[{
                 [name]:value
             })
         )
-        // if ((firstname.value).length<3){
-        //     firstname.style.borderStyle="2px solid green"
-        //     // firstname.style.borderColor="red"
-        //     firstnamep.innerText="make valid input"
-        //     firstnamep.style.color="red"
-        // }
+        
 
         for(let i=0; i<info.length; i++){
-            if (info[i].name.length>0 && info[i].name.length<3 ){
-            // info[i].element.style.borderStyle="2px red solid"
-            // firstname.style.borderColor="red"
-            info[i].paragraph.innerText="input can't be less than 3 characters"
+            if (info[i].name.length>0 && info[i].name.length<3 && info[i].name !=userInfo.password ){
+            info[i].paragraph.innerText="Input can't be less than 3 characters"
             info[i].element.style.borderColor="red"
-        } else if(info[i].name.length<=0 || info[i].name.length>=3 ){
+            
+        } else if(info[i].name.length===0 || info[i].name.length>=3 ){
             info[i].paragraph.innerText=""
             info[i].element.style.borderColor="blue"}
 
-        // if (info[i].name.length>0 &&  info[i].name.length<3){
-        //     // info[i].element.style.borderStyle="2px red solid"
-        //     // firstname.style.borderColor="red"
-        //     info[i].paragraph.innerText="Field can't be less than 3 characters"
-        //     info[i].element.style.borderColor="red"
+        if (info[i].name.length>=1 && info[i].name.length<=3 && info[i].name===userInfo.password){
+                info[i].paragraph.innerHTML= `<span> Password length: ${info[i].name.length}</span> <br /> <span>Password Strength: weak</span>`
+                info[i].paragraph.style.color="red"
+            }
 
-        //     if(info[i].name==="gender"){
-        //         continue
-        //     }
-        // }  
+        else if (info[i].name.length>3 && info[i].name.length<=7 && info[i].name===userInfo.password){
+                info[i].paragraph.innerHTML= `<span> Password length: ${info[i].name.length}</span> <br /> <span>Password Strength: Good</span>`
+                info[i].paragraph.style.color="blue"}
+        else if(info[i].name.length>7 && info[i].name===userInfo.password){
+                info[i].paragraph.innerHTML= `<span> Password length: ${info[i].name.length}</span> <br /> <span>Password Strength: Excellent</span>`
+                info[i].paragraph.style.color="Green"
+            }
+
 
         }
+        
         
     }
     return(
@@ -163,6 +161,7 @@ const info=[{
                 <label>Password<input id="Password" name="password"
                 type="password"
                 placeholder="*********"
+                defaultValue=""
                 value={userInfo.password}
                 onChange= {handleInfo}
                 /></label>
